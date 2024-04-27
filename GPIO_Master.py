@@ -6,7 +6,7 @@ class GPIOCtrl():
         self.pin_ac2 = 27
         self.pin_fert = 22
 
-        # GPIO.setmode(GPIO.BCM)
+        GPIO.setmode(GPIO.BCM)
 
         self.InitPin()
         self.TurnOff()

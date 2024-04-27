@@ -136,12 +136,15 @@ class DataCtrl():
         self.msg = []
     
     def DataStream(self):
-        schedule.every(1).minutes.do(self.StoreData)
-        # schedule.every(5).minutes.do(self.PublishData)
+        try:
+            schedule.every(1).minutes.do(self.StoreData)
+            schedule.every(5).minutes.do(self.PublishData)
 
-        while True:
-            schedule.run_pending()
-            time.sleep(1)
+            while True:
+                schedule.run_pending()
+                time.sleep(1)
+        except Exception as e:
+            print(e)
     
     def DecodeMsg(self):
         # temp = self.RowMsg.decode("ascii")
